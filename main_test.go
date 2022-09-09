@@ -15,7 +15,7 @@ import (
 	"testing"
 )
 
-var binaryName = "tempconverterTestBinary"
+var binaryName = "tempConverterTestBinary"
 
 func TestMain(m *testing.M) {
 	build := exec.Command("go", "build", "-o", binaryName)
@@ -27,8 +27,8 @@ func TestMain(m *testing.M) {
 	exitCode := m.Run()
 
 	cleanUp := exec.Command("rm", "-f", binaryName)
-	cleanUperr := cleanUp.Run()
-	if cleanUperr != nil {
+	cleanUpErr := cleanUp.Run()
+	if cleanUpErr != nil {
 		fmt.Println("could not clean up", err)
 	}
 
@@ -66,8 +66,8 @@ func TestAssignsToOriginUnitM1(t *testing.T) {
 		log.Fatal(err)
 	}
 
-	fset := token.NewFileSet()
-	f, err := parser.ParseFile(fset, "", src, 0)
+	fSet := token.NewFileSet()
+	f, err := parser.ParseFile(fSet, "", src, 0)
 	if err != nil {
 		panic(err)
 	}
